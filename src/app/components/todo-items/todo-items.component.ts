@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Todo } from 'src/app/requirements/Todo';
 
 @Component({
   selector: 'app-todo-items',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo-items.component.css']
 })
 export class TodoItemsComponent {
-
+  handleClick(title:Todo){
+    this.deleteEvent.emit(title)
+  }
+  @Input() todo!:Todo
+  @Output() deleteEvent: EventEmitter<Todo>=new EventEmitter();
 }

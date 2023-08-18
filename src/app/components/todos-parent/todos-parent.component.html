@@ -1,1 +1,6 @@
-<p>todos-parent works!</p>
+<input type="text" [(ngModel)]="title" id="tas" class="text"/>
+<input type="text" [(ngModel)]="description" id="tas" class="text"/>
+<button class="btn-primary" (click)="handleadd()">Add task</button>
+<div *ngFor="let Todo of todos">
+    <app-todo-items [todo]=Todo (deleteEvent)="handleEvent($event)"></app-todo-items>
+</div>
