@@ -7,49 +7,33 @@ import { Todo } from 'src/app/requirements/Todo';
   styleUrls: ['./todos-parent.component.css']
 })
 export class TodosParentComponent {
+  localItem: string;
   display!:string;
   todos: Todo[];
   title!: string;
   description!: string;
   constructor(){
-    this.todos=[
-      {
-        sno:1,
-        title:"Read",
-        desc: "Read a book",
-        active:true
-      },
-      {
-        sno:2,
-        title:"Meditate",
-        desc: "Do Meditation",
-        active:true
-      },
-      {
-        sno:3,
-        title:"Workout",
-        desc: "Go to gym",
-        active:true
-      },
-      {
-        sno:4,
-        title:"Study",
-        desc: "Study programming",
-        active:true
-      }
-    ]
+    this.localItem = localStorage.getItem("todos")!;
+    if(this.localItem == null){
+    this.todos = [];
+    }
+    else{ 
+      this.todos = JSON.parse(this.localItem); 
+    }
+
   }
-handleEvent(input:Todo){
+handleDelete(input:Todo){
   this.todos.splice(this.todos.indexOf(input),1)
+  localStorage.setItem("todos", JSON.stringify(this.todos));
 }
 handleadd(){
   const task={
-    sno:4,
     title:this.title,
     desc: this.description,
     active:true
   }
   this.todos.push(task)
   console.log(this.todos)
+  localStorage.setItem("todos", JSON.stringify(this.todos));
 }
 }

@@ -1,6 +1,35 @@
-<input type="text" [(ngModel)]="title" id="tas" class="text"/>
-<input type="text" [(ngModel)]="description" id="tas" class="text"/>
-<button class="btn-primary" (click)="handleadd()">Add task</button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br />
+  <div class="card" style="width: 18rem; margin-left: 1rem;">
+  <div class="container">
+      <br />
+      <h5>Title</h5><input type="text" [(ngModel)]="title" id="tas" class="text"/> <br /><br />
+      <h5>Description</h5><input type="text" [(ngModel)]="description" id="tas" class="text"/> <br /><br />
+
+  </div>
+<button type="button" class="btn btn-primary" (click)="handleadd()">Add task</button>
+</div>
 <div *ngFor="let Todo of todos">
-    <app-todo-items [todo]=Todo (deleteEvent)="handleEvent($event)"></app-todo-items>
+    <app-todo-items [todo]=Todo (deleteEvent)="handleDelete($event)"></app-todo-items>
 </div>
