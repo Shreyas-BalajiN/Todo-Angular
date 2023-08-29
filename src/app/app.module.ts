@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosParentComponent } from './components/todos-parent/todos-parent.component';
 import { TodoItemsComponent } from './components/todo-items/todo-items.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosParentComponent,
-    TodoItemsComponent
+    TodoItemsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

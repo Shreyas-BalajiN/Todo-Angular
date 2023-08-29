@@ -10,6 +10,11 @@ export class TodoItemsComponent {
   handleClick(title:Todo){
     this.deleteEvent.emit(title)
   }
+  handleDone(todo:Todo){
+    this.doneEvent.emit(todo)
+  }
   @Input() todo!:Todo
+  @Input() i!: number;
   @Output() deleteEvent: EventEmitter<Todo>=new EventEmitter();
+  @Output() doneEvent: EventEmitter<Todo>=new EventEmitter();
 }

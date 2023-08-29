@@ -1,11 +1,12 @@
-<div class="card my-3" style="width: 18rem; float: left; margin-left: 1rem;">
+<div class="card my-3" style="width: 18rem; float: left; margin-left: 4rem;">
 <div class="container">
 <br />
-<h5>{{todo.title}}</h5><br />
-<h6>{{todo.desc}}</h6><br />
-<input type="checkbox" name="done" id="done"/>
-<label class="form-check-label">Done</label>
+<h5 [ngClass]="{'strike': !todo.active}">{{todo.title}}</h5><br />
+<h6 [ngClass]="{'strike': !todo.active}">{{todo.desc}}</h6><br />
+<input type="checkbox" name="done" id="done" id="todo{{i}}" (click)="handleDone(todo)"/>
+<label class="form-check-label"for="todo{{i}}">Done</label>
 </div>
+<br />
 <button type="button" class="btn btn-danger" (click)="handleClick(todo)">Delete</button>
 </div>
 

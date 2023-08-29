@@ -22,6 +22,9 @@ export class TodosParentComponent {
     }
 
   }
+handleDone(todo:Todo){
+  this.todos[this.todos.indexOf(todo)].active=!this.todos[this.todos.indexOf(todo)].active
+}
 handleDelete(input:Todo){
   this.todos.splice(this.todos.indexOf(input),1)
   localStorage.setItem("todos", JSON.stringify(this.todos));
