@@ -3,7 +3,7 @@
 <br />
 <h5 [ngClass]="{'strike': !todo.active}">{{todo.title}}</h5><br />
 <h6 [ngClass]="{'strike': !todo.active}">{{todo.desc}}</h6><br />
-<input type="checkbox" name="done" id="done" id="todo{{i}}" (click)="handleDone(todo)"/>
+<input type="checkbox" [checked]="!todo.active" name="done" id="done" id="todo{{i}}" (click)="handleDone(todo)"/>
 <label class="form-check-label"for="todo{{i}}">Done</label>
 </div>
 <br />

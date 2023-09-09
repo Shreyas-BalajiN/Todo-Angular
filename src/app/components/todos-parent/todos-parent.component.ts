@@ -22,8 +22,12 @@ export class TodosParentComponent {
     }
 
   }
+ngOnInit(){
+  console.log(this.todos)
+}
 handleDone(todo:Todo){
   this.todos[this.todos.indexOf(todo)].active=!this.todos[this.todos.indexOf(todo)].active
+  localStorage.setItem("todos", JSON.stringify(this.todos));
 }
 handleDelete(input:Todo){
   this.todos.splice(this.todos.indexOf(input),1)
